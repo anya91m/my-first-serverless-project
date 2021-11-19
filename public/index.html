@@ -15,17 +15,17 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const fetchBtn = document.getElementById('fetch-btn')
-        const responseText = document.getElementById('response-output')
         const fetchPokedexBtn = document.getElementById('fetch-pokedex-btn')
+        const responseText = document.getElementById('response-output')
 
         fetchPokedexBtn.addEventListener('click', async () => {
           const response = await fetch('/.netlify/functions/pokedex').then(response => response.json())
 
-          responseText.innerText = JSON.stringify
+          responseText.innerText = JSON.stringify(response)
         })
 
         fetchBtn.addEventListener('click', async() => {
-          const response = await fetch('/.netlify/functions/hello-world').then(response => response.json )
+          const response = await fetch('/.netlify/functions/hello-world').then(response => response.json())
           // once response received to utilise it inside of JS code need to parse it using dot json function
           responseText.innerText = JSON.stringify(response)
           // replaced previous inner text for response 
